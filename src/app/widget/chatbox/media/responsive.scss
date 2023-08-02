@@ -1,0 +1,34 @@
+// Mobile First trong Responsive
+
+/*Smart phone nhỏ*/
+@media screen and (min-width: 240px){
+  .container {
+    margin: 3px;
+  }
+}
+/*Iphone(480 x 640)*/
+@media screen and (min-width: 320px) {
+  .container {
+    margin: 3px;
+  }
+}
+/*Tablet nhỏ(480 x 640)*/
+@media screen and (min-width: 480px){
+  .container {
+    margin: 5px;
+  }
+
+}
+/*Ipad dọc(768 x 1024)*/
+@media screen and (min-width: 768px){
+  .container {
+    margin: 10px;
+  }
+}
+/*Ipad ngang(1024 x 768)*/
+@media screen and (min-width: 1024px){
+  .container {
+    margin: 20px;
+  }
+}
+

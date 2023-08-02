@@ -1,0 +1,10 @@
+<app-chatbox *ngIf="name;else invalidConfig" [class.active]="active" [(isModalActive)]="active"
+  [serverResponse]="response" [serverResponseUpdate]="responseUpdate" [chatConfig]="config"
+  (onMessageInput)="getMessage($event)"></app-chatbox>
+<ng-template #invalidConfig>invalid bot name!</ng-template>
+
+<!-- <div class="notification">
+  <audio display="hidden" data-ss1676019770="1">
+    <source type="audio/mpeg" src="https://cdn.engagement.ai/production/static/media/notification-sound.mp3">
+  </audio>
+</div> -->

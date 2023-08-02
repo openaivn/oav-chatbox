@@ -1,0 +1,69 @@
+<section class="container">
+  <div id="chat_modal" [class]="{'hidden-chat': !isModalActive, 'show-chat': isModalActive}">
+    <div class="chat">
+      <div chatConfig class="chat-header noselect" *ngIf="chatConfig && (chatConfig.title || chatConfig.subTitle)  ">
+        <div class="chat-icon">
+          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </div>
+        <p class="title" *ngIf="chatConfig.title">{{ chatConfig.title }}</p>
+        <p class="sub-title" *ngIf="chatConfig.subTitle">
+          {{ chatConfig.subTitle }}
+        </p>
+        <!--Lấy mã nhúng, Kết thúc trò chuyện-->
+        <div class="close-chat">
+          <div class="dropdown" [class.active]="activeBtnDropdown">
+            <span (click)="activeBtnDropdown=!activeBtnDropdown;"><i class="fa fa-list"></i></span>
+            <div class="dropdown-content">
+              <div>
+                <input id="chkTypingMode" type="checkbox" [(ngModel)]="chatConfig.typingMode"
+                  [checked]="chatConfig.typingMode">
+                <label for="chkTypingMode">Typing mode</label>
+              </div>
+              <div style="color: red; padding-top: 10px" (click)="newConv();closeDialog();">
+                <i class="fa fa-close"></i>
+                End conversation?
+              </div>
+            </div>
+          </div>
+          <span (click)="closeDialog()"><i class="fa fa-times"></i>
+          </span>
+        </div>
+      </div>
+      <div #autoScroll class="messages-content">
+        <div *ngFor="let msg of messages">
+          <label [ngClass]="msg.type == 'user' ? 'user-msg' : 'bot-msg'">
+            {{ msg.message }}</label>
+        </div>
+        <div class="chat-typing" *ngIf="isBotActive">
+          <div class="chat-typing--bubbles">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="action-box noselect" *ngIf="taskDone">
+        <div type="submit" style="background-color: pink;" class="message-submit" (click)="newConv()">
+          Trợ giúp mới?
+        </div>
+      </div>
+      <div class="message-box noselect">
+        <input type="text" (keydown.enter)="pushData(userMessage)" [(ngModel)]="userMessage" class="message-input"
+          [placeholder]="taskDone? 'Trò chuyện đã kết thúc!': 'Type message...'" [disabled]="taskDone" />
+        <div type="submit" class="noselect message-submit" (click)="pushData(userMessage)">
+          Send
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="float-buton-group noselect">
+    <div class="float-button" *ngIf="!isModalActive" (click)="showDialog()">
+      <i class="float-icon fa fa-comment"></i>
+    </div>
+    <div class="float-button" *ngIf="isModalActive" (click)="closeDialog()">
+      <i class="float-icon fa fa-times-circle"></i>
+    </div>
+  </div>
+</section>
