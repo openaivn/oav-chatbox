@@ -22,7 +22,7 @@ import { KEY_BAI_URL_CHATWIDGET, KEY_BAI_URL_CONV, KEY_OAV_API_ENDPOINT, KEY_OAV
       padding:10px;
       border: solid black 1px;
       cursor: pointer;
-      display: inline;
+      display: inline-block;
       user-select: none;
     }
 
