@@ -3,7 +3,8 @@
     <div class="chat">
       <div chatConfig class="chat-header noselect" *ngIf="chatConfig && (chatConfig.title || chatConfig.subTitle)  ">
         <div class="chat-icon">
-          <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+          <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
+          <img src="https://cloud.openai.vn/assets/img/brand/logo.png" style="height: 100%;" />
         </div>
         <p class="title" *ngIf="chatConfig.title">{{ chatConfig.title }}</p>
         <p class="sub-title" *ngIf="chatConfig.subTitle">
