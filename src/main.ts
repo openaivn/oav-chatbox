@@ -3,7 +3,7 @@
 import { createCustomElement } from '@angular/elements';
 import { createApplication } from '@angular/platform-browser';
 import { BtnToggleComponent } from '@app/btn-toggle/btn-toggle.component';
-import { ToggleComponent } from '@app/toggle/toggle.component';
+import { OAVInfoComponent } from '@app/oav-info/oav-info.component';
 import { BotScriptAIComponent } from '@app/widget/botscript-ai.component';
 
 
@@ -31,12 +31,12 @@ import { BotScriptAIComponent } from '@app/widget/botscript-ai.component';
   )
 
   // other stub
-  const toogleElement = createCustomElement(ToggleComponent, {
+  const oavInfoElement = createCustomElement(OAVInfoComponent, {
     injector: app.injector,
   });
 
   customElements.define('botscript-ai', botscriptAIElement);
-  customElements.define('my-toggle', toogleElement);
+  customElements.define('oav-info', oavInfoElement);
   customElements.define('btn-botscript-ai', btnToggleWidgetElement);
   try {
     if (!document?.querySelector('botscript-ai[name]')) {

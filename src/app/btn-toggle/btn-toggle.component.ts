@@ -10,40 +10,10 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output, ViewEnc
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  template: `
-    <div class="toggle" [class.active]="active" (click)="toggle()">
-      <span #wrapper>
-        <ng-content></ng-content>
-      </span>
-      <span *ngIf="!wrapper.childNodes.length">💬</span>
-    </div>
-    <botscript-ai class="ai-chatbox" [name]="name" [active]="true"></botscript-ai>
-  `,
-  styles: [`
-    .toggle {
-      /*
-      padding:10px;
-      border: solid black 1px;
-      */
-      cursor: pointer;
-      display: inline;
-      user-select: none;
-    }
-
-    .active {
-      /* background-color: lightsteelblue; */
-      color: lightsteelblue;
-      text-shadow: 1px 1px green;
-    }
-
-    .ai-chatbox {
-      display: none
-    }
-
-    .toggle.active + botscript-ai {
-      display: block;
-    }
-  `],
+  templateUrl: './btn-toggle.component.html',
+  styleUrls: [
+    './btn-toggle.component.scss',
+  ],
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class BtnToggleComponent {

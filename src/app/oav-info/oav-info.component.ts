@@ -1,15 +1,21 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { KEY_BAI_URL_CHATWIDGET, KEY_BAI_URL_CONV } from '@env/constants';
+import { KEY_BAI_URL_CHATWIDGET, KEY_BAI_URL_CONV, KEY_OAV_API_ENDPOINT, KEY_OAV_API_KEY } from '@env/constants';
 
 @Component({
-  selector: 'app-toggle',
+  selector: 'app-oav-info',
   standalone: true,
   imports: [CommonModule],
   template: `
     <div class="toggle" [class.active]="active" (click)="toggle()">
       <slot></slot>
     </div>
+    <h2>API Info</h2>
+    <ul>
+      <li>Endpoint: {{OAV_API_ENDPOINT}}</li>
+      <li>Key: {{OAV_API_KEY}}</li>
+      <li>Dev Mode: {{active}}</li>
+    </ul>
   `,
   styles: [`
     .toggle {
@@ -26,7 +32,7 @@ import { KEY_BAI_URL_CHATWIDGET, KEY_BAI_URL_CONV } from '@env/constants';
   `],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class ToggleComponent {
+export class OAVInfoComponent {
 
   @Input() active = false;
   @Output() change = new EventEmitter<boolean>();
@@ -41,6 +47,14 @@ export class ToggleComponent {
       localStorage.removeItem(KEY_BAI_URL_CONV);
       localStorage.removeItem(KEY_BAI_URL_CHATWIDGET);
     }
+  }
+
+  get OAV_API_ENDPOINT() {
+    return localStorage.getItem(KEY_OAV_API_ENDPOINT) || 'https://api.openai.vn/v1/chat/completions' as string;
+  }
+
+  get OAV_API_KEY() {
+    return localStorage.getItem(KEY_OAV_API_KEY) || 'Unconfigured' as string;
   }
 
 }

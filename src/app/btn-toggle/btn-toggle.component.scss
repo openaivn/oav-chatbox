@@ -1,0 +1,23 @@
+.toggle {
+  /*
+  padding:10px;
+  border: solid black 1px;
+  */
+  cursor: pointer;
+  display: inline;
+  user-select: none;
+}
+
+.active {
+  /* background-color: lightsteelblue; */
+  color: lightsteelblue;
+  text-shadow: 1px 1px green;
+}
+
+.ai-chatbox {
+  display: none;
+}
+
+.toggle.active + botscript-ai {
+  display: block;
+}

@@ -27,7 +27,7 @@ float button
   float: right;
   border-radius: 50%;
   text-align: center;
-  background-color: #248a52;
+  background-color: #0fcebc;
   color: white;
   box-shadow: 2px 2px 3px #999;
   cursor: pointer;
@@ -139,7 +139,7 @@ Message Box
   right: 10px;
   color: #fff;
   border: none;
-  background: #248a52;
+  background: #0fcebc;
   font-size: 10px;
   text-transform: uppercase;
   line-height: 1;
@@ -148,7 +148,7 @@ Message Box
   cursor: pointer;
 }
 .message-box .message-submit:hover {
-  background: #1d7745;
+  background: #0fcebc;
 }
 
 /*------------------------

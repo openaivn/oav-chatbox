@@ -1,0 +1,7 @@
+<div class="toggle" [class.active]="active" (click)="toggle()">
+  <span #wrapper>
+    <ng-content></ng-content>
+  </span>
+  <span *ngIf="!wrapper.childNodes.length">💬</span>
+</div>
+<botscript-ai class="ai-chatbox" [name]="name" [active]="true"></botscript-ai>
