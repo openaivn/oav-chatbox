@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { ChatConfig } from '@app/widget/chatbox/chat-config';
-import { ChatboxModule } from '@app/widget/chatbox/chatbox.module';
-import { ChatRequetService } from '@app/widget/chatbox/request/ChatRequest.service';
+import { ChatConfig } from '@app/chatbox/chat-config';
+import { ChatboxModule } from '@app/chatbox/chatbox.module';
+import { ChatRequetService } from '@app/chatbox/request/ChatRequest.service';
 
 @Component({
   selector: 'app-widget',

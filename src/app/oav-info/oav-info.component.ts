@@ -54,7 +54,7 @@ export class OAVInfoComponent {
   }
 
   get OAV_API_KEY() {
-    return localStorage.getItem(KEY_OAV_API_KEY) || 'Unconfigured' as string;
+    return localStorage.getItem(KEY_OAV_API_KEY) || 'Get one at https://botscript.openai.vn/#/Account/api-keys' as string;
   }
 
 }

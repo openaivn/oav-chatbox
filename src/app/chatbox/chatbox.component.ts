@@ -1,5 +1,5 @@
 import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { ChatRequetService } from '@app/widget/chatbox/request/ChatRequest.service';
+import { ChatRequetService } from '@app/chatbox/request/ChatRequest.service';
 // import { NGXLogger } from "ngx-logger";
 import { ChatConfig } from './chat-config';
 import { ChatMessage } from './chat-message';

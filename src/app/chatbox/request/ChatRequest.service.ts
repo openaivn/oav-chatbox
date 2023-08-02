@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { GuidService } from '@app/widget/chatbox/request/guid.service';
+import { GuidService } from '@app/chatbox/request/guid.service';
 import { KEY_BAI_IDCONV, KEY_BAI_URL_CHATWIDGET, KEY_BAI_URL_CONV } from '@env/constants';
 import { environment } from '@env/environment';
 import { tap } from 'rxjs';
