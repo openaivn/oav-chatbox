@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 
 @Component({
-  selector: 'app-btn-toggle',
+  selector: 'app-chat-button',
   standalone: true,
   imports: [
     CommonModule,
@@ -10,9 +10,9 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output, ViewEnc
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
   ],
-  templateUrl: './btn-toggle.component.html',
+  templateUrl: './oav-chat-button.component.html',
   styleUrls: [
-    './btn-toggle.component.scss',
+    './oav-chat-button.component.scss',
   ],
   encapsulation: ViewEncapsulation.ShadowDom
 })

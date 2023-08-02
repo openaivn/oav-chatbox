@@ -2,7 +2,7 @@
 
 import { createCustomElement } from '@angular/elements';
 import { createApplication } from '@angular/platform-browser';
-import { OAVChatButtonComponent } from '@app/oav-chat-button/btn-toggle.component';
+import { OAVChatButtonComponent } from '@app/oav-chat-button/oav-chat-button.component';
 import { OAVInfoComponent } from '@app/oav-info/oav-info.component';
 import { BotScriptAIComponent } from '@app/widget/botscript-ai.component';
 
