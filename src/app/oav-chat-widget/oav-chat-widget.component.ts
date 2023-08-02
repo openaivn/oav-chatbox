@@ -5,19 +5,19 @@ import { ChatboxModule } from '@app/chatbox/chatbox.module';
 import { ChatRequetService } from '@app/chatbox/request/ChatRequest.service';
 
 @Component({
-  selector: 'app-widget',
+  selector: 'app-chat-widget',
   standalone: true,
   imports: [
     CommonModule,
     ChatboxModule,
   ],
-  templateUrl: './botscript-ai.component.html',
+  templateUrl: './oav-chat-widget.component.html',
   styleUrls: [
-    './botscript-ai.component.scss',
+    './oav-chat-widget.component.scss',
   ],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class BotScriptAIComponent {
+export class OAVChatWidgetComponent {
 
   @Input() active = false;
   @Output() activeChange = new EventEmitter<boolean>();
