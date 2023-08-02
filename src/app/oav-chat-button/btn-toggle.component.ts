@@ -16,7 +16,7 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output, ViewEnc
   ],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class BtnToggleComponent {
+export class OAVChatButtonComponent {
 
   @Input() active = false;
   @Output() change = new EventEmitter<boolean>();
