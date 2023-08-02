@@ -1,14 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { ChatConfig } from '@app/chatbox/chat-config';
+import { ChatboxModule } from '@app/chatbox/chatbox.module';
+import { ChatRequetService } from '@app/chatbox/request/ChatRequest.service';
 
 @Component({
   selector: 'app-chat-button',
   standalone: true,
   imports: [
     CommonModule,
-  ],
-  schemas: [
-    CUSTOM_ELEMENTS_SCHEMA
+    ChatboxModule,
   ],
   templateUrl: './oav-chat-button.component.html',
   styleUrls: [
@@ -19,21 +20,66 @@ import { Component, CUSTOM_ELEMENTS_SCHEMA, EventEmitter, Input, Output, ViewEnc
 export class OAVChatButtonComponent {
 
   @Input() active = false;
-  @Output() change = new EventEmitter<boolean>();
+  @Output() activeChange = new EventEmitter<boolean>();
+  @Input() typing = true;
   @Input() name = '';
+  @Input() token = '';
+  @Input() title = 'ChatBox';
+  @Input() subtitle = 'Voice inteface for online Help Desk!';
+  response: string = '';
+  responseUpdate: string = '';
+  config!: ChatConfig;
 
-  activateChatbox: boolean = true;
-  // @ViewChild('cmp', { static: false })
-  // private chatbox!: BotScriptAIComponent;
+  constructor(
+    private svChatRequest: ChatRequetService,
+  ) {
+  }
 
+  ngOnInit() {
+    this.config = {
+      botName: this.name,
+      title: this.title,
+      subTitle: this.subtitle,
+      typingMode: this.typing,
+    }
+  }
 
   toggle(): void {
     this.active = !this.active;
-    this.change.emit(this.active);
+    this.activeChange.emit(this.active);
+  }
 
-    // if (this.active) {
-    //   this.chatbox.toggle();
-    // }
+  async getMessage(message: string) {
+    if (!this.config.typingMode) {
+      this.svChatRequest.chat(this.name, message)
+        .subscribe({
+          next: (res) => {
+            this.response = res.text;
+          },
+          error: (err) => {
+            console.error('Error: ', err);
+          }
+        });
+      return;
+    }
+    const response = await this.svChatRequest.chatTyping(this.name, message);
+    // Display the assistant's response in chunks
+    let assistantResponse = "";
+    this.response = 'Typing...';
+
+    // ... (Rest of the code for reading and displaying responses)
+    const reader = response.body!.getReader();
+    const textDecoder = new TextDecoder("utf-8");
+
+    while (true) {
+      const { value, done } = await reader.read();
+      if (done) break;
+
+      assistantResponse += textDecoder.decode(value, { stream: !done });
+      this.responseUpdate = assistantResponse;
+    }
+    // reset next.
+    this.response = '';
   }
 
 }

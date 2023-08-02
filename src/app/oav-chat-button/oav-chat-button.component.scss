@@ -14,10 +14,10 @@
   text-shadow: 1px 1px green;
 }
 
-.ai-chatbox {
+.oav-ai-chatbox {
   display: none;
 }
 
-.toggle.active + oav-chat-widget {
+.toggle.active + .oav-ai-chatbox {
   display: block;
 }

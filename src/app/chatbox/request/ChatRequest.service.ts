@@ -48,6 +48,9 @@ export class ChatRequetService {
     const vRequestUrl = `${this.botConvUrl}/${bot}/conv`;
     const idConv = id || this.idConv as string;
     return this.http.get<{
+      name: string,
+      note: string,
+      description: string,
       updatedAt: Date,
       lastReplyText: string,
       taskDone: boolean,

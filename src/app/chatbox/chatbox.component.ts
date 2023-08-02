@@ -62,6 +62,8 @@ export class ChatboxComponent {
           this.taskDone = value.taskDone;
           this.lastReplyText = value.lastReplyText;
           this.lastUpdatedAt = value.updatedAt;
+          this.chatConfig.title = value.name || this.chatConfig.title;
+          this.chatConfig.subTitle = value.note || this.chatConfig.subTitle;
           if (value.data.length > 0) {
             this.messages = value.data.reverse().map(x => ({
               type: x.role === 'user' ? 'user' : 'bot',
