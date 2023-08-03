@@ -2,6 +2,8 @@
 
 An Open-source Chatbox Widget For Website with ChatGPT integration
 
+Demo: https://openaivn.github.io/oav-chatbox/
+
 # For Development
 
 Start project for develoment
@@ -11,6 +13,49 @@ Start project for develoment
 Build the project
 
 > npm run build
+
+# API Elements
+
+- oav-info
+- oav-chat-widget
+- oav-chat-button
+
+# How to use?
+
+Copy the following code, embed into your website
+
+### Example 1:
+
+Auto inject, just paste code with attribute: `data-botscript="autoInject"`
+
+```html
+<!-- head: just only insert lib -->
+<script type="text/javascript" data-botscript="autoInject" data-name="cooing-aquamarine-dormouse" src="https://openaivn.github.io/oav-chatbox/js/oav-chatbox-latest.js" async></script>
+```
+
+### Example 2:
+
+Using custom elements: `oav-chat-widget`
+
+```html
+<!-- head: insert lib -->
+<script type="text/javascript" src="https://openaivn.github.io/oav-chatbox/js/oav-chatbox-latest.js" async></script>
+
+<!-- body: embed -->
+<oav-chat-widget name="demo" active="true"></oav-chat-widget>
+```
+
+### Example 3:
+
+Using custom elements: `oav-chat-button`
+
+```html
+<!-- head: insert lib -->
+<script type="text/javascript" src="https://openaivn.github.io/oav-chatbox/js/oav-chatbox-latest.js" async></script>
+
+<!-- body: embed -->
+<oav-chat-button name="demo" active="true">TURN ON</oav-chat-button>
+```
 
 # OAV Community
 
