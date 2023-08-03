@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, Output, ViewEncapsulation } from '@angular/core';
 import { ChatConfig } from '@app/chatbox/chat-config';
 import { ChatboxModule } from '@app/chatbox/chatbox.module';
 import { ChatRequetService } from '@app/chatbox/request/ChatRequest.service';
@@ -29,6 +29,9 @@ export class OAVChatButtonComponent {
   response: string = '';
   responseUpdate: string = '';
   config!: ChatConfig;
+
+  @HostBinding('style.display')
+  bindHostDisplay: string = `inline-block`;
 
   constructor(
     private svChatRequest: ChatRequetService,

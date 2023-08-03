@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, HostBinding, Input, Output, ViewEncapsulation } from '@angular/core';
 import { KEY_BAI_URL_CHATWIDGET, KEY_BAI_URL_CONV, KEY_OAV_API_ENDPOINT, KEY_OAV_API_KEY } from '@env/constants';
 
 @Component({
@@ -36,6 +36,8 @@ export class OAVInfoComponent {
 
   @Input() active = false;
   @Output() change = new EventEmitter<boolean>();
+  @HostBinding('style.display')
+  bindHostDisplay: string = `block`;
 
   toggle(): void {
     this.active = !this.active;
