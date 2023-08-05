@@ -1,17 +1,15 @@
 .toggle {
-  /*
-  padding:10px;
-  border: solid black 1px;
-  */
   cursor: pointer;
   display: inline;
   user-select: none;
 }
 
-.active {
-  /* background-color: lightsteelblue; */
+.toggle.active {
   color: lightsteelblue;
-  text-shadow: 1px 1px green;
+
+  span.content {
+    text-shadow: 1px 1px green;
+  }
 }
 
 .oav-ai-chatbox {
