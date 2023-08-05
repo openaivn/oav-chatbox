@@ -4,8 +4,6 @@
   </span>
   <span *ngIf="!wrapper.childNodes.length">💬</span>
 </div>
-<!-- <oav-chat-widget class="oav-ai-chatbox" [name]="name" [active]="true"></oav-chat-widget> -->
-
 <app-chatbox class="oav-ai-chatbox" *ngIf="name;else invalidConfig" [class.active]="active" [(isModalActive)]="active"
   [serverResponse]="response" [serverResponseUpdate]="responseUpdate" [chatConfig]="config"
   (onMessageInput)="getMessage($event)"></app-chatbox>

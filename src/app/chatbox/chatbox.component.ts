@@ -11,6 +11,7 @@ import { ChatMessage } from './chat-message';
     './chatbox.component.scss',
     './media/responsive.scss',
     './media/btn-dropdown.scss',
+    './media/host.scss',
   ],
   styles: [
     `@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');`,
